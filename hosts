@@ -1,0 +1,21 @@
+[local]
+localhost
+
+[k8s-masters]
+192.168.2.83 pub_ip=192.168.2.83 priv_ip=172.17.8.101
+192.168.2.71 pub_ip=192.168.2.72 priv_ip=172.17.8.102
+
+
+[k8s-workers]
+192.168.2.137 pub_ip=192.168.2.137 priv_ip=172.17.8.103
+
+[k8s-nodes:children]
+k8s-masters
+k8s-workers
+
+[k8s-nodes:vars]
+ansible_ssh_user=core
+ansible_python_interpreter=/home/core/bin/python
+
+[local:vars]
+ansible_ssh_user=liangbinliu

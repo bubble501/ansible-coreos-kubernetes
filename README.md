@@ -21,6 +21,8 @@ You can use those roles to install Python and make CoreOS installation:
 * [deimosfr.coreos-ansible](https://github.com/deimosfr/ansible-coreos-ansible)
 * [deimosfr.coreos-container-linux](https://github.com/deimosfr/ansible-coreos-container-linux)
 
+
+ansible-playbook -i hosts  shit.yml
 Role Variables
 --------------
 
@@ -41,7 +43,7 @@ k8s_dns_service_ip: '10.3.0.10'
 k8s_cluster_domain: 'cluster.local'
 k8s_kubectl_cluster_name: 'default-cluster'
 
-k8s_adverstise_ip: "{{ansible_enp0s8.ipv4.address}}"
+k8s_adverstise_ip: "{{eth2.ipv4.address}}"
 # Leave it blank if you're using flannel, otherwize use cni for Calico
 k8s_kublet_network_plugin: ''
 # Set to false by default because kubelet-wrapper will handle it

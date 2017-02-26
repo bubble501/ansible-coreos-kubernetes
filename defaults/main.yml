@@ -14,7 +14,7 @@ k8s_dns_service_ip: '10.3.0.10'
 k8s_cluster_domain: 'cluster.local'
 k8s_kubectl_cluster_name: 'default-cluster'
 
-k8s_adverstise_ip: "{{ansible_enp0s8.ipv4.address}}"
+k8s_adverstise_ip: "{{ansible_eth2.ipv4.address}}"
 # Leave it blank if you're using flannel, otherwize use cni for Calico
 k8s_kublet_network_plugin: ''
 # Set to false by default because kubelet-wrapper will handle it
@@ -23,7 +23,7 @@ k8s_restart_kubelet: false
 # SSL
 
 k8s_role_path: "roles/deimosfr.coreos-kubernetes"
-k8s_template_dir: "{{k8s_role_path}}/templates"
+k8s_template_dir: "{{playbook_dir}}/templates"
 k8s_ssl_local_path: "{{k8s_role_path}}/files/ssl/{{k8s_kubectl_cluster_name}}"
 k8s_ssl_api_server_path: "{{k8s_ssl_local_path}}/api_servers"
 k8s_ssl_workers_path: "{{k8s_ssl_local_path}}/workers"
